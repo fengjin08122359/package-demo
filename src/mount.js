@@ -1,5 +1,5 @@
 
-export let mount = (vueInstance, id = 'app') => {
+export let mount = (vueInstance, id = 'appid') => {
     var target = null;
     if (document.getElementById(id)) {
         target =  document.getElementById(id)

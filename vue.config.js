@@ -12,7 +12,15 @@ module.exports = {
         minSize: 30000,
         minChunks: 1,
         maxAsyncRequests: 5,
-        maxInitialRequests: 3
+        maxInitialRequests: 3,
+        cacheGroups: {
+          vue: {
+            name: `chunk-vue-vendors`,
+            test:  /[\\/]node_modules[\\/](vue|vue-router|vuex)[\\/]/,
+            priority: 1,
+            chunks: 'all'
+          }
+        }
        }
       }
     }),
@@ -26,7 +34,7 @@ module.exports = {
         template: 'public/index.html',
         filename: 'index.html',
         title: 'index',
-        chunks: ['chunk-vendors', 'chunk-common', 'index'],
+        chunks: ['chunk-vendors', 'chunk-vue-vendors', 'chunk-common', 'index'],
         favicon:'public/favicon.ico'
       },
     },
