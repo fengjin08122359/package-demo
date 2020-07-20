@@ -1,17 +1,24 @@
 <template>
   <div class="home">
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+  {{homeindex}}
+  {{aboutindex}}
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
+import {mapState} from 'vuex'
 
 export default {
   name: "Home",
-  components: {
-    HelloWorld
+  computed: {
+    ...mapState({
+      homeindex:(state) => {
+        console.log(state)
+        return state.homepageHome.index
+      },
+      aboutindex:(state) => state.homepageAbout.index,
+    }) 
   },
   mounted() {
     console.log(process.env)

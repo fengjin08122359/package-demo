@@ -8,7 +8,6 @@ let pages = {};
 files.keys().forEach(key => {
   pages[pkg.name + '/' +key.replace(/(\.\/|\.vue)/g, '')] = files(key).default;
 })
-console.log(pages)
 let generator = convertRouter(pages)
 console.log(generator)
 Vue.use(VueRouter)
